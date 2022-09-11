@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            padding:7px;
+            height:10px;
+        }
+        fieldset{
+          margin-bottom: 20px;  
+        }
+    </style>
+</head>
+<body>
+<form id="temp">
+    <h1>Appointment Booking App</h1>
+    <input type="text" id="inpKey" placeholder="Enterkey...">
+    <input type="text" id="inpValue" placeholder="Entervalue...">
+    <button type="button" id="btninsert">Submit</button>
+</form>
+</body>
+<script>
+    var form=document.getElementById('temp');
+    var btn=document.getElementById('btninsert')
+    let details=[];
+    btn.onclick=function(){
+    let Obj={
+    inpKey:document.getElementById('inpKey').value,
+    inpValue:document.getElementById('inpValue').value
+    }
+    let strObj=JSON.stringify(Obj)
+    details.push(strObj);
+    document.querySelector('form').reset();
+    localStorage.setItem('details',details);
+    }
+  
+</script>
+
+</html>
